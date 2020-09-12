@@ -10,10 +10,13 @@ import connections.Packets.MainPacketCreator;
 import constants.Data.AccountType;
 import constants.GameConstants;
 import constants.ServerConstants;
+import launcher.ServerPortInitialize.ChannelServer;
 import scripting.NPC.NPCScriptManager;
 import server.Items.InventoryManipulator;
 import server.Maps.MapleMapHandling.MapleMap;
 import server.Maps.MapleMapHandling.MaplePortal;
+
+import java.util.HashMap;
 
 public class PlayerCommands {
     @Command(names = {"help"}, parameters = "", requiredType = AccountType.PLAYER) 
@@ -125,7 +128,57 @@ public class PlayerCommands {
 			return "Increases your STR by the specified amount based on your available remaining ap.";
 		}
 	}
+	@Command(names = {"goto"}, parameters = "<name>", requiredType = AccountType.PLAYER)
+	public static class Goto extends PlayerCommand {
+		@Override
+		public int execute(MapleCharacter c, String[] splitted) {
+			String[] townNames = {"southperry", "amherst", "ellinia", "perion", "kerning", "lith", "sleepywood",
+			"florina", "orbis", "happy", "elnath", "ludi", "aqua", "leafre", "mulung", "herb", "omega", "korean", "nlc",
+					"showa", "time", "gmmap"};
+			String[] townIDs = {"60000", "1010000", "101000000", "102000000", "103000000", "104000000", "105040300"
+					, "110000000", "200000000", "209000000", "211000000", "220000000", "230000000", "240000000",
+			"250000000", "251000000", "221000000", "222000000", "600000000", "801000000", "931050431", "180000000"};
+			HashMap<String, String> town = new HashMap<String, String>();
+			for(int i =0; i < townNames.length; i++){
+				town.put(townNames[i], townIDs[i]);
+			}
 
+			ChannelServer cserv = c.getClient().getChannelServer();
+			MapleMap target = null;
+			if(town.containsKey(splitted[1])) {
+				if (c.getEventInstance() != null) {
+					target = c.getEventInstance().getMapFactory().getMap(Integer.parseInt(town.get(splitted[1].toLowerCase())));
+				} else {
+					target = cserv.getMapFactory().getMap(Integer.parseInt(town.get(splitted[1].toLowerCase())));
+				}
+
+				MaplePortal targetPortal = null;
+				if (splitted.length > 2) {
+						try {
+							targetPortal = target.getPortal(Integer.parseInt(town.get(splitted[2].toLowerCase())));
+						} catch (IndexOutOfBoundsException e) {
+							c.dropMessage(5, "Invalid portal selected.");
+						} catch (NumberFormatException a) {
+						}
+				}
+				if (targetPortal == null) {
+					targetPortal = target.getPortal(0);
+				}
+				c.changeMap(target, targetPortal);
+			} else{
+				c.dropMessage(5, "Invalid name selected.");
+			}
+
+			return 1;
+		}
+
+		@Override
+		public String getDescription() {
+			return "Warps to Maps. [southperry, amherst, henesys/lobby, ellinia, perion, kerning, lith, sleepywood," +
+					" florina, orbis, happy, elnath, ludi, aqua, leafre, mulung, herb, omega, korean, nlc," +
+					" showa, time]";
+		}
+	}
 	@Command(names = {"int"}, parameters = "<amount>", requiredType = AccountType.PLAYER)
 	public static class Int extends PlayerCommand {
 		@Override

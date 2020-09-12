@@ -17,7 +17,7 @@ import tools.Triple;
 public class ServerConstants {
 
     /* 서버 설정 */
-    public static String Host = "175.207.0.33";
+    public static String Host = "127.0.0.1";
     public static String ADMIN1;
     public static String ADMIN2;
     public static String ADMIN3;
