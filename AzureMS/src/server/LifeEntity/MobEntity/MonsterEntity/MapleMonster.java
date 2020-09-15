@@ -280,7 +280,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         if (from.getMapId() == 120000102) {
             from.addDamageMeter(rDamage);
             from.send(MainPacketCreator.RemovePopupSay());
-            from.send(MainPacketCreator.OnAddPopupSay(9000036, 3000, "´©Àû µ¥¹ÌÁö #e[#n#r" + Randomizer.Comma(from.getDamageMeter()) + "#k#e]", ""));
+            from.send(MainPacketCreator.OnAddPopupSay(9000036, 3000, "ëˆ„ì  ë°ë¯¸ì§€ #e[#n#r" + Randomizer.Comma(from.getDamageMeter()) + "#k#e]", ""));
         }
 
         if (finalmaxhp > 0) {
@@ -447,469 +447,24 @@ public class MapleMonster extends AbstractLoadedMapleLife {
                 }
             }
             highestDamageChar = attacker;
+            
+        if(isEliteMonster()){
+            exp = ((((attacker.getLevel()) - (attacker.getLevel() % 10)) / 10) * 3) + 3;
+        }
+            
         }
          if (exp > 0) { // Exp Rate?
             // Experience level || exp rate || exp
-
-                 if (attacker.getLevel() < 10) {
-                            
-                   exp *= 2;
-                            
-                  }
-                else if (attacker.getLevel() < 20) {
-                            
-                   exp *= 4;
-                            
-                  }
-                else if (attacker.getLevel() < 30) {
-                            
-                   exp *= 8;
-                            
-                  }
-                else if (attacker.getLevel() < 40) {
-                            
-                   exp *= 10;
-                            
-                  }
-                else if (attacker.getLevel() < 50) {
-                            
-                   exp *= 15;
-                            
-                  }
-                else if (attacker.getLevel() < 60) {
-                            
-                   exp *= 20;
-                            
-                  }
-                else if (attacker.getLevel() < 70) {
-                            
-                   exp *= 25;
-                            
-                  }
-                else if (attacker.getLevel() < 80) {
-                            
-                   exp *= 30;
-                            
-                  }
-                else if (attacker.getLevel() < 90) {
-                            
-                   exp *= 35;
-                            
-                  }
-                else if (attacker.getLevel() < 100) {
-                            
-                   exp *= 40;
-                            
-                  }
-                else if (attacker.getLevel() < 110) {
-                            
-                   exp *= 45;
-                            
-                  }
-                else if (attacker.getLevel() < 120) {
-                            
-                   exp *= 50;
-                            
-                  }
-                else if (attacker.getLevel() < 130) {
-                            
-                   exp *= 55;
-                            
-                  }
-                else if (attacker.getLevel() < 140) {
-                            
-                   exp *= 60;
-                            
-                  }
-                else if (attacker.getLevel() < 150) {
-                            
-                   exp *= 65;
-                            
-                  }
-                else if (attacker.getLevel() < 160) {
-                            
-                   exp *= 70;
-                            
-                  }
-                else if (attacker.getLevel() < 170) {
-                            
-                   exp *= 75;
-                            
-                  }
-                else if (attacker.getLevel() < 180) {
-                            
-                   exp *= 80;
-                            
-                  }
-                else if (attacker.getLevel() < 190) {
-                            
-                   exp *= 85;
-                            
-                  }
-                else if (attacker.getLevel() < 200) {
-                            
-                   exp *= 90;
-                            
-                  }
-                else if (attacker.getLevel() < 210) {
-                            
-                   exp *= 95;
-                            
-                  }
-                else if (attacker.getLevel() < 220) {
-                            
-                   exp *= 100;
-                            
-                  }
-                else if (attacker.getLevel() < 230) {
-                            
-                   exp *= 105;
-                            
-                  }
-                else if (attacker.getLevel() < 240) {
-                            
-                   exp *= 110;
-                            
-                  }
-                else if (attacker.getLevel() < 250) {
-                            
-                   exp *= 115;
-                            
-                  }
-                else if (attacker.getLevel() < 260) {
-                            
-                   exp *= 120;
-                            
-                  }
-                else if (attacker.getLevel() < 270) {
-                            
-                   exp *= 125;
-                            
-                  }
-                else if (attacker.getLevel() < 280) {
-                            
-                   exp *= 130;
-                            
-                  }
-                else if (attacker.getLevel() < 290) {
-                            
-                   exp *= 135;
-                            
-                  }
-                else if (attacker.getLevel() < 300) {
-                            
-                   exp *= 140;
-                            
-                  }
-                else if (attacker.getLevel() < 310) {
-                            
-                   exp *= 145;
-                            
-                  }
-                else if (attacker.getLevel() < 320) {
-                            
-                   exp *= 150;
-                            
-                  }
-                else if (attacker.getLevel() < 330) {
-                            
-                   exp *= 155;
-                            
-                  }
-                else if (attacker.getLevel() < 340) {
-                            
-                   exp *= 160;
-                            
-                  }
-                else if (attacker.getLevel() < 350) {
-                            
-                   exp *= 165;
-                            
-                  }
-                else if (attacker.getLevel() < 360) {
-                            
-                   exp *= 170;
-                            
-                  }
-                else if (attacker.getLevel() < 370) {
-                            
-                   exp *= 175;
-                            
-                  }
-                else if (attacker.getLevel() < 380) {
-                            
-                   exp *= 180;
-                            
-                  }
-                else if (attacker.getLevel() < 390) {
-                            
-                   exp *= 185;
-                            
-                  }
-                else if (attacker.getLevel() < 400) {
-                            
-                   exp *= 190;
-                            
-                  }
-                else if (attacker.getLevel() < 410) {
-                            
-                   exp *= 195;
-                            
-                  }
-                else if (attacker.getLevel() < 420) {
-                            
-                   exp *= 200;
-                            
-                  }
-                else if (attacker.getLevel() < 430) {
-                            
-                   exp *= 205;
-                            
-                  }
-                else if (attacker.getLevel() < 440) {
-                            
-                   exp *= 210;
-                            
-                  }
-                else if (attacker.getLevel() < 450) {
-                            
-                   exp *= 215;
-                            
-                  }
-                else if (attacker.getLevel() < 460) {
-                            
-                   exp *= 220;
-                            
-                  }
-                else if (attacker.getLevel() < 470) {
-                            
-                   exp *= 225;
-                            
-                  }
-                else if (attacker.getLevel() < 480) {
-                            
-                   exp *= 230;
-                            
-                  }
-                else if (attacker.getLevel() < 490) {
-                            
-                   exp *= 235;
-                            
-                  }
-                else if (attacker.getLevel() < 500) {
-                            
-                   exp *= 240;
-                            
-                  }
-                else if (attacker.getLevel() < 510) {
-                            
-                   exp *= 245;
-                            
-                  }
-                else if (attacker.getLevel() < 520) {
-                            
-                   exp *= 250;
-                            
-                  }
-                else if (attacker.getLevel() < 530) {
-                            
-                   exp *= 255;
-                            
-                  }
-                else if (attacker.getLevel() < 540) {
-                            
-                   exp *= 260;
-                            
-                  }
-                else if (attacker.getLevel() < 550) {
-                            
-                   exp *= 265;
-                            
-                  }
-                else if (attacker.getLevel() < 560) {
-                            
-                   exp *= 270;
-                            
-                  }
-                else if (attacker.getLevel() < 570) {
-                            
-                   exp *= 275;
-                            
-                  }
-                else if (attacker.getLevel() < 580) {
-                            
-                   exp *= 280;
-                            
-                  }
-                else if (attacker.getLevel() < 590) {
-                            
-                   exp *= 285;
-                            
-                  }
-                else if (attacker.getLevel() < 600) {
-                            
-                   exp *= 290;
-                            
-                  }
-                else if (attacker.getLevel() < 610) {
-                            
-                   exp *= 295;
-                            
-                  }
-                else if (attacker.getLevel() < 620) {
-                            
-                   exp *= 300;
-                            
-                  }
-                else if (attacker.getLevel() < 630) {
-                            
-                   exp *= 305;
-                            
-                  }
-                else if (attacker.getLevel() < 640) {
-                            
-                   exp *= 310;
-                            
-                  }
-                else if (attacker.getLevel() < 650) {
-                            
-                   exp *= 315;
-                            
-                  }
-                else if (attacker.getLevel() < 660) {
-                            
-                   exp *= 320;
-                            
-                  }
-                else if (attacker.getLevel() < 670) {
-                            
-                   exp *= 325;
-                            
-                  }
-                else if (attacker.getLevel() < 680) {
-                            
-                   exp *= 330;
-                            
-                  }
-                else if (attacker.getLevel() < 690) {
-                            
-                   exp *= 335;
-                            
-                  }
-                else if (attacker.getLevel() < 700) {
-                            
-                   exp *= 340;
-                            
-                  }
-                else if (attacker.getLevel() < 710) {
-                            
-                   exp *= 345;
-                            
-                  }
-                else if (attacker.getLevel() < 720) {
-                            
-                   exp *= 350;
-                            
-                  }
-                else if (attacker.getLevel() < 730) {
-                            
-                   exp *= 355;
-                            
-                  }
-                else if (attacker.getLevel() < 740) {
-                            
-                   exp *= 360;
-                            
-                  }
-                else if (attacker.getLevel() < 750) {
-                            
-                   exp *= 365;
-                            
-                  }
-                else if (attacker.getLevel() < 760) {
-                            
-                   exp *= 370;
-                            
-                  }
-                else if (attacker.getLevel() < 770) {
-                            
-                   exp *= 375;
-                            
-                  }
-                else if (attacker.getLevel() < 780) {
-                            
-                   exp *= 380;
-                            
-                  }
-                else if (attacker.getLevel() < 790) {
-                            
-                   exp *= 385;
-                            
-                  }
-                else if (attacker.getLevel() < 800) {
-                            
-                   exp *= 390;
-                            
-                  }
-                else if (attacker.getLevel() < 810) {
-                            
-                   exp *= 395;
-                            
-                  }
-                else if (attacker.getLevel() <  820) {
-                            
-                   exp *= 400;
-                            
-                  }
-                else if (attacker.getLevel() < 830) {
-                            
-                   exp *= 405;
-                            
-                  }
-                else if (attacker.getLevel() < 840) {
-                            
-                   exp *= 410;
-                            
-                  }
-                else if (attacker.getLevel() < 850) {
-                            
-                   exp *= 415;
-                            
-                  }
-                else if (attacker.getLevel() < 860) {
-                            
-                   exp *= 420;
-                            
-                  }
-                else if (attacker.getLevel() < 870) {
-                            
-                   exp *= 425;
-                            
-                  }
-                else if (attacker.getLevel() < 880) {
-                            
-                   exp *= 430;
-                            
-                  }
-                else if (attacker.getLevel() < 890) {
-                            
-                   exp *= 435;
-                            
-                  }
-                else if (attacker.getLevel() < 900) {
-                            
-                   exp *= 440;
-                            
-                  }
-                
-                
-
-                        else { // level 790 and higher
-                           
-                     exp *= 455;
-                    
-                        }
-            
+             //EXP formulae Azure316 pre-adjustment
+            if (attacker.getLevel() < 30) {
+                 exp *= 2 * (1+ (attacker.getLevel()/10));
+             }
+             else if (attacker.getLevel() < 900) {
+                 exp *= 5 * ((attacker.getLevel()/10) - 1);
+             }
+             else {
+                 exp *= 455;
+             }
             
             int originExp = exp;
             final MonsterStatusEffect ms = stati.get(MonsterStatus.SHOWDOWN);
@@ -944,9 +499,9 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         long highdamage = 0;
 
         if (Randomizer.nextInt(100) <= 2) {
-            if (killer.getLevel() - getStats().getLevel() <= 5) { // ¸ó½ºÅÍ·¹º§ º¸´Ù 5ÀÌ»ó ³ôÀ¸¸éµå·Ó¾ÈµÊ
+            if (killer.getLevel() - getStats().getLevel() <= 5) { // ëª¬ìŠ¤í„°ë ˆë²¨ ë³´ë‹¤ 5ì´ìƒ ë†’ìœ¼ë©´ë“œë¡­ì•ˆë¨
                 cash = Randomizer.rand(50, 150);
-            } else if (killer.getLevel() - getStats().getLevel() <= -20) { // ¸ó½ºÅÍ·¹º§ º¸´Ù 20ÀÌ»ó ³·À¸¸é ´õ³ô°Ô
+            } else if (killer.getLevel() - getStats().getLevel() <= -20) { // ëª¬ìŠ¤í„°ë ˆë²¨ ë³´ë‹¤ 20ì´ìƒ ë‚®ìœ¼ë©´ ë”ë†’ê²Œ
                 cash = Randomizer.rand(60, 200);
             }
         }
@@ -1236,15 +791,15 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         sb.append(getMp());
         sb.append("/ ");
         sb.append(getMobMaxMp());
-        sb.append(" (»ì¾ÆÀÖÀ½: ");
+        sb.append(" (ì‚´ì•„ìžˆìŒ: ");
         sb.append(isAlive());
-        sb.append(" ¿ÀºêÁ§Æ®id: ");
+        sb.append(" ì˜¤ë¸Œì íŠ¸id: ");
         sb.append(getObjectId());
-        sb.append(") || ÄÁÆ®·Ñ·¯ ÀÌ¸§ : ");
+        sb.append(") || ì»¨íŠ¸ë¡¤ëŸ¬ ì´ë¦„ : ");
         final MapleCharacter chr = controller.get();
-        sb.append(chr != null ? chr.getName() : "¾øÀ½");
-        sb.append(" FinalMaxHP ¿©ºÎ: ");
-        sb.append(isFinalBoss() ? "¿¹" : "¾Æ´Ï¿À");
+        sb.append(chr != null ? chr.getName() : "ì—†ìŒ");
+        sb.append(" FinalMaxHP ì—¬ë¶€: ");
+        sb.append(isFinalBoss() ? "ì˜ˆ" : "ì•„ë‹ˆì˜¤");
 
         return sb.toString();
     }
@@ -1641,7 +1196,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
                         idrop = new Item(d.itemId, (byte) 0,
                                 (short) (d.Maximum != 1 ? Randomizer.nextInt(d.Maximum - d.Minimum) + d.Minimum : 1),
                                 (byte) 0);
-                        idrop.setGMLog(chr.getName() + "°¡ ½ºÆ¿·Î ÀÎÇÑ ¾ÆÀÌÅÛ ÈÉÄ¡±â·Î ¾òÀº ¾ÆÀÌÅÛ");
+                        idrop.setGMLog(chr.getName() + "ê°€ ìŠ¤í‹¸ë¡œ ì¸í•œ ì•„ì´í…œ í›”ì¹˜ê¸°ë¡œ ì–»ì€ ì•„ì´í…œ");
                     }
                     stolen = d.itemId;
                     map.spawnMobDrop(idrop, map.calcDropPos(getPosition(), getPosition()), this, chr, (byte) 0,
